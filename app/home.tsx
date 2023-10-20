@@ -39,8 +39,6 @@ export default function Home() {
    <View style={{flex: 1,}}>    
       {session && session.user ? <Product session={session} /> : <Auth />}
     </View>
-{/* key={session.user.id} */}
-
     </SafeAreaView>
   )
 }

@@ -53,9 +53,9 @@ header: {
       },
       
       proceedToCartBtnTxt: {
-        color: COLORS.white, // Text color
-      fontSize: 18, // Text font size
-      fontWeight: 'bold', // Text font weight
+      color: COLORS.white, 
+      fontSize: 18, 
+      fontWeight: 'bold', 
       },
     
       proceedToNextPageBtn: {
@@ -125,8 +125,6 @@ header: {
         color: COLORS.white,
       },
 
-
-    
       verticallySpaced: {
         paddingTop: 4,
         paddingBottom: 4,
@@ -142,7 +140,7 @@ header: {
         justifyContent: 'center',
         alignItems: 'center',
         
-        backgroundColor: COLORS.primary, // Use your app's primary color
+        backgroundColor: COLORS.lightWhite, 
       },
       auth_profile_InnerContainer: {
         marginTop: 40,
