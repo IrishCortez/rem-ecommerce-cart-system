@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import { Alert, StyleSheet, View } from 'react-native'
+import { View, TouchableOpacity, Text } from 'react-native'
 import { supabase } from '../../lib/supabase'
-import { Button, Input } from 'react-native-elements'
+import { Input } from 'react-native-elements'
 import styles from '../../styles/page_styles.styles';
-
 
 
 export default function Auth() {
@@ -12,14 +11,14 @@ export default function Auth() {
   const [loading, setLoading] = useState(false)
 
   async function signInWithEmail() {
-    setLoading(true)
+    setLoading(true);
     const { error } = await supabase.auth.signInWithPassword({
       email: email,
       password: password,
     })
 
-    if (error) Alert.alert(error.message)
-    setLoading(false)
+    if (error) alert(error.message);
+    setLoading(false);
   }
 
   async function signUpWithEmail() {
@@ -28,11 +27,11 @@ export default function Auth() {
       email: email,
       password: password,
     })
-
-    if (error) Alert.alert(error.message)
+    alert("A verification email has been sent to your email address. Please verify your email to login.");
+    if (error) alert(error.message)
     setLoading(false)
-    Alert.alert("A verification email has been sent. Please verify your email to add the product to your cart.")
   }
+  
 
   return (
     <View style={styles.auth_profile_OuterContainer}>
@@ -54,12 +53,19 @@ export default function Auth() {
           placeholder="Password"
           autoCapitalize={'none'}
         />
+ 
         <View style={styles.verticallySpaced}>
-        <Button title="Sign in" disabled={loading} onPress={() => signInWithEmail()} />
+          <TouchableOpacity style={styles.proceedToNextPageBtn} onPress={() => signInWithEmail()}>
+            <Text style={styles.proceedToCartBtnTxt} numberOfLines={1}>Sign in</Text>
+         </TouchableOpacity>    
         </View>
+
         <View style={styles.verticallySpaced}>
-        <Button title="Sign up" disabled={loading} onPress={() => signUpWithEmail()} />
+          <TouchableOpacity style={styles.proceedToNextPageBtn} onPress={() => signUpWithEmail()}>
+           <Text style={styles.proceedToCartBtnTxt} numberOfLines={1}>Sign up</Text>
+         </TouchableOpacity>    
         </View>
+     
       </View>
     </View>
   )
